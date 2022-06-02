@@ -1,0 +1,14 @@
+.wsl-steam-account-link {
+	display: block;
+	width: 100%;
+	background-color: var(--wsl-background-color);
+	border: solid 2px var(--wsl-button-color);
+	padding: 1rem;
+
+	&__link-account {
+		p {
+			margin: 0;
+            text-align: center;
+		}
+	}
+}

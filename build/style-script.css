@@ -1,0 +1,27 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/UserAccountLink/steam/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.wsl-steam-account-link {
+  display: block;
+  width: 100%;
+  background-color: var(--wsl-background-color);
+  border: solid 2px var(--wsl-button-color);
+  padding: 1rem;
+}
+.wsl-steam-account-link__link-account p {
+  margin: 0;
+  text-align: center;
+}
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+:root {
+  --wsl-background-color: #1B2838;
+  --wsl-secondary-background-color: #16202D;
+  --wsl-main-text-color: #86b5d9;
+  --wsl-secondary-text-color: #8F98A0;
+  --wsl-button-color: #a4d007;
+  --wsl-button-secondary-color: #536904;
+}
+
+/*# sourceMappingURL=style-script.css.map*/

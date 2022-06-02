@@ -1,0 +1,46 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/globalComponents/loader/SteamLoader.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.steam-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.steam-loader svg {
+  max-width: 2rem;
+  height: auto;
+  -webkit-animation: zoom 1s infinite linear;
+          animation: zoom 1s infinite linear;
+}
+
+@-webkit-keyframes zoom {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+/*# sourceMappingURL=script.css.map*/
