@@ -1,0 +1,9 @@
+.steam-user-card {
+    display: block;
+    background-color: var(--wsl-secondary-background-color);
+    padding: .5rem;
+    &__img {
+        border: solid 2px var(--wsl-main-text-color);
+        
+    }
+}

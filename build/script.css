@@ -42,5 +42,41 @@
     transform: scale(1, 1);
   }
 }
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/globalComponents/UI/SteamButton.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+.steam-button {
+  cursor: pointer;
+  border-radius: 2px;
+  border: none;
+  padding: 1px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #d2e885 !important;
+  background: #a4d007;
+  background: linear-gradient(to bottom, #a4d007 5%, #536904 95%);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.steam-button:hover {
+  text-decoration: none !important;
+  color: #fff !important;
+  background: #b6d908;
+  background: linear-gradient(to bottom, #b6d908 5%, #80a006 95%);
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/UserAccountLink/steam/components/SteamUserCard.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+.steam-user-card {
+  display: block;
+  background-color: var(--wsl-secondary-background-color);
+  padding: 0.5rem;
+}
+.steam-user-card__img {
+  border: solid 2px var(--wsl-main-text-color);
+}
 
 /*# sourceMappingURL=script.css.map*/

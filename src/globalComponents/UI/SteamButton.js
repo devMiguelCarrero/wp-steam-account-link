@@ -1,12 +1,12 @@
-import "./Button.scss";
+import "./SteamButton.scss";
 
-const LmstButton = (props) => {
+const SteamButton = (props) => {
   switch (props.tag) {
     case "link":
       return (
         <a
           href={props.href ? props.href : `#`}
-          className={`${props.className && props.className} lmst-button`}
+          className={`${props.className && props.className} steam-button`}
         >
           {props.children}
         </a>
@@ -17,7 +17,7 @@ const LmstButton = (props) => {
       return (
         <button
           type={props.type ? props.type : `button`}
-          className={`${props.className && props.className} lmst-button`}
+          className={`${props.className && props.className} steam-button`}
           disabled={props.disabled ? props.disabled : false}
         >
           <span className="button-text">{props.children}</span>
@@ -26,4 +26,4 @@ const LmstButton = (props) => {
       break;
   }
 };
-export default LmstButton;
+export default SteamButton;

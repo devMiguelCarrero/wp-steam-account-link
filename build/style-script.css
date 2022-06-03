@@ -9,8 +9,15 @@
   padding: 1rem;
 }
 .wsl-steam-account-link__link-account p {
-  margin: 0;
+  margin-bottom: 1rem;
   text-align: center;
+}
+.wsl-steam-account-link__link-account p:last-child {
+  margin-bottom: 0;
+}
+.wsl-steam-account-link .steam-button {
+  display: table;
+  margin: 0 auto;
 }
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/style.scss ***!

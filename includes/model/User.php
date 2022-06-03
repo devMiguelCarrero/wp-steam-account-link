@@ -28,6 +28,12 @@ class WSL_User_Model
 		return $result != null ? $result : $default;
 	}
 
+	public function updateCurrentUserMeta($key, $meta) {
+		if(is_user_logged_in()) {
+			update_user_meta(get_current_user_ID(), $key, $meta);
+		}
+	}
+
 	public static function instance()
 	{
 		return new WSL_User_Model();

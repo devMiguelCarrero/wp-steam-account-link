@@ -7,8 +7,16 @@
 
 	&__link-account {
 		p {
-			margin: 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			margin-bottom: 1rem;
             text-align: center;
 		}
+	}
+
+	.steam-button {
+		display: table;
+		margin: 0 auto;
 	}
 }
