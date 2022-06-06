@@ -4,6 +4,8 @@
 
         function __construct() {
             $this->id = 'custom-menu-page';
+            $this->submenu = false;
+            $this->parent_slug = 'options-general.php';
             $this->page_title = __( 'Custom Menu Page' , WSL_DOMAIN );
             $this->menu_title = __( 'Custom Menu Page' , WSL_DOMAIN );
             $this->capability = 'manage_options';
@@ -15,16 +17,27 @@
 
         public function add() {
 
-            add_menu_page( 
-                $this->page_title,
-                $this->menu_title,
-                $this->capability,
-                $this->menu_slug,
-                [ $this , $this->callback ],
-                $this->icon_url,
-                $this->position
-            );
-
+            if($this->submenu) {
+                add_submenu_page( 
+                    $this->parent_slug, 
+                    $this->page_title,
+                    $this->menu_title,
+                    $this->capability,
+                    $this->menu_slug,
+                    [ $this , $this->callback ],
+                    $this->position
+                );
+            } else {
+                add_menu_page( 
+                    $this->page_title,
+                    $this->menu_title,
+                    $this->capability,
+                    $this->menu_slug,
+                    [ $this , $this->callback ],
+                    $this->icon_url,
+                    $this->position
+                );
+            }
         }
 
         public function single_react_view() {
@@ -76,6 +89,16 @@
 
         public function setPosition($position){
             $this->menu_page->position = $position;
+            return $this;
+        }
+
+        public function setSubMenu($submenu){
+            $this->menu_page->submenu = $submenu;
+            return $this;
+        }
+
+        public function setParentSlug($parent_slug){
+            $this->menu_page->parent_slug = $parent_slug;
             return $this;
         }
 

@@ -24,6 +24,7 @@ class SteamAuth
 		};
 		$this->OnLogoutCallback = function () {
 		};
+		$this->returnURL = '';
 	}
 
 	public function __call($closure, $args)
@@ -54,9 +55,13 @@ class SteamAuth
 		header("Location: " . $this->GetLoginURL());
 	}
 
+	public function setReturnURL($return_url) {
+		$this->returnURL = $return_url;
+	}
+
 	public function GetLoginURL()
 	{
-		$this->OpenID->setReturnURL('http://localhost/esports-page/mi-cuenta/');
+		$this->OpenID->setReturnURL($this->returnURL);
 		return $this->OpenID->authUrl();
 	}
 

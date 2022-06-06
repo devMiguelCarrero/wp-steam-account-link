@@ -35,7 +35,7 @@ class WSL_Enqueue_Styles
 		$enqueue->setType('style')
 			->setName(WSL_DOMAIN . '-course-edit-style')
 			->setPath(WSL_PLUGIN_URL . 'build/script.css')
-			->setVer($this->admin_assets['version'])
+			->setVer($this->script_assets['version'])
 			->setMedia('all')
 			->enqueue();
 
@@ -50,11 +50,19 @@ class WSL_Enqueue_Styles
 
 	public function admin_styles()
 	{
+		
+		$enqueue = new WSL_EnqueueBuilder();
+		$enqueue->setType('style')
+			->setName(WSL_DOMAIN . '-admin-style')
+			->setPath(WSL_PLUGIN_URL . 'build/admin.css')
+			->setVer($this->admin_assets['version'])
+			->setMedia('all')
+			->enqueue();
 
 		$enqueue = new WSL_EnqueueBuilder();
 		$enqueue->setType('style')
-			->setName(WSL_DOMAIN . '-course-edit-style')
-			->setPath(WSL_PLUGIN_URL . 'build/index.css')
+			->setName(WSL_DOMAIN . '-admin-edit-style')
+			->setPath(WSL_PLUGIN_URL . 'build/style-admin.css')
 			->setVer($this->admin_assets['version'])
 			->setMedia('all')
 			->enqueue();

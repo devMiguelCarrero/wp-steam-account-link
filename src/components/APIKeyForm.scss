@@ -1,0 +1,43 @@
+.api-key-form {
+	.form-group {
+		display: block;
+		position: relative;
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+        &--buttons {
+            .steam-button {
+                text-align: left;
+                display: inline-block;
+                &:not(:last-child) {
+                    margin-right: .5rem;
+                }
+            }
+        }
+	}
+
+    a {
+        color: var(--wsl-main-text-color);
+        &:hover, &:focus {
+            color: var(--wsl-button-color);
+        }
+    }
+
+	&__label {
+		display: block;
+		color: var(--wsl-main-text-color);
+		margin-bottom: 0.3rem;
+	}
+
+	&__input {
+		width: 100%;
+		border: solid 2px #fff !important;
+		border-radius: 0 !important;
+		background-color: var(--wsl-background-color) !important;
+		color: #fff !important;
+	}
+
+	&__explanation {
+		color: var(--wsl-secondary-text-color);
+	}
+}

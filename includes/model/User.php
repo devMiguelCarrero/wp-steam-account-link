@@ -28,8 +28,21 @@ class WSL_User_Model
 		return $result != null ? $result : $default;
 	}
 
-	public function updateCurrentUserMeta($key, $meta) {
-		if(is_user_logged_in()) {
+	public function updateUserMeta($user, $key, $meta)
+	{
+		update_user_meta($user, $key, $meta);
+	}
+
+	public function deleteCurrentUserMeta($key)
+	{
+		if (is_user_logged_in()) {
+			delete_user_meta(get_current_user_ID(), $key);
+		}
+	}
+
+	public function updateCurrentUserMeta($key, $meta)
+	{
+		if (is_user_logged_in()) {
 			update_user_meta(get_current_user_ID(), $key, $meta);
 		}
 	}

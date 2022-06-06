@@ -1,8 +1,11 @@
 :root {
   --wsl-background-color: #1B2838;
-  --wsl-secondary-background-color: #16202D;
+  --wsl-secondary-background-color: #000;
   --wsl-main-text-color: #86b5d9;
   --wsl-secondary-text-color: #8F98A0;
   --wsl-button-color: #a4d007;
   --wsl-button-secondary-color: #536904;
+  --wsl-error-color: #b44040;
+  --wsl-button-2-background: rgba(0, 0, 0, 0.5 );
+  --wsl-button-2-hover: rgba( 102, 192, 244, 0.4 );
 }

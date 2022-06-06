@@ -7,11 +7,36 @@ class WSL_User_Async
 	{
 		add_action('wp_ajax_WSL_get_user_steam_id', [$this, 'get_user_steam_id']);
 		add_action('wp_ajax_nopriv_WSL_get_user_steam_id', [$this, 'get_user_steam_id']);
+		add_action('wp_ajax_WSL_update_user_info', [$this, 'update_user_info']);
+		add_action('wp_ajax_nopriv_WSL_update_user_info', [$this, 'update_user_info']);
+		add_action('wp_ajax_WSL_disconnect_user_steam_account', [$this, 'disconnect_user_steam_account']);
+		add_action('wp_ajax_nopriv_WSL_disconnect_user_steam_account', [$this, 'disconnect_user_steam_account']);
 	}
 
 	public function get_user_steam_id()
 	{
-		echo json_encode(WSL_User_Helper::instance()->checkUserSteamInfo());
+		echo json_encode(WSL_User_Helper::instance()->checkUserSteamInfo(esc_attr($_POST['return_url'])));
+		exit();
+	}
+
+	public function update_user_info()
+	{
+		$userInfo = esc_attr($_POST['user-info']);
+		$userID = esc_attr($_POST['user-id']);
+
+		if ($userInfo && $userID) {
+			$userInfo = htmlspecialchars_decode(stripslashes($userInfo));
+			WSL_User_Model::instance()->updateUserMeta($userID, 'wp-steam-account-summary', json_decode($userInfo));
+			echo 'updated';
+		}
+
+		exit();
+	}
+
+	public function disconnect_user_steam_account()
+	{
+		WSL_User_Model::instance()->deleteCurrentUserMeta('wp-steam-account-linked');
+		echo 'disconnected';
 		exit();
 	}
 

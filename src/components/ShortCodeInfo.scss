@@ -1,0 +1,11 @@
+.wp-steam-shortcode-info {
+    &__shortcode {
+        padding: .5rem;
+        background-color: var(--wsl-secondary-background-color);
+        text-align: center;
+        color: #fff;
+        &:not(:last-child) {
+			margin-bottom: 0.3rem;
+		}
+    }
+}

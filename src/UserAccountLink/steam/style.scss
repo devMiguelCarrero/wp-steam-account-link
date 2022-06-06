@@ -1,9 +1,24 @@
+:root {
+	--wsl-background-color: #1B2838;
+	--wsl-secondary-background-color: #000;
+	--wsl-main-text-color: #86b5d9;
+	--wsl-secondary-text-color: #8F98A0;
+	--wsl-button-color: #a4d007;
+	--wsl-button-secondary-color: #536904;
+	--wsl-error-color: #b44040;
+	--wsl-button-2-background: rgba(0, 0, 0, 0.5 );
+	--wsl-button-2-hover: rgba( 102, 192, 244, 0.4 );
+}
+
 .wsl-steam-account-link {
 	display: block;
 	width: 100%;
 	background-color: var(--wsl-background-color);
 	border: solid 2px var(--wsl-button-color);
 	padding: 1rem;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 
 	&__link-account {
 		p {
@@ -11,12 +26,24 @@
 				margin-bottom: 0;
 			}
 			margin-bottom: 1rem;
-            text-align: center;
+			text-align: center;
 		}
 	}
 
 	.steam-button {
 		display: table;
 		margin: 0 auto;
+	}
+
+	.error-message {
+		margin: 0;
+		text-align: center;
+		color: var(--wsl-error-color);
+	}
+
+	& > * {
+		&:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
 	}
 }

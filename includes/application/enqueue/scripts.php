@@ -18,6 +18,18 @@ class WSL_Enqueue_Scripts
 
 	public function admin_scripts()
 	{
+		$enqueue = new WSL_EnqueueBuilder();
+		$enqueue->setType('script')
+			->setName(WSL_DOMAIN . '-admin-control')
+			->setPath(WSL_PLUGIN_URL . 'build/admin.js')
+			->setDependencies($this->admin_assets['dependencies'])
+			->setVer($this->admin_assets['version'])
+			->setInFooter(true)
+			->enqueue();
+		$enqueue->localizeScript(array(
+			'WSL_URLs' => WSL_URLs::instance()->get_array(),
+			'WSL_post_info' => WSL_Post::instance()->get_posts_info()
+		));
 	}
 
 	public function editor_scripts()

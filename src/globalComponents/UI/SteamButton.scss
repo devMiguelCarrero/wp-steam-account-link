@@ -11,15 +11,29 @@
 	background: -webkit-linear-gradient(top, #a4d007 5%, #536904 95%);
 	background: linear-gradient(to bottom, #a4d007 5%, #536904 95%);
 	padding-left: 20px;
-    padding-right: 20px;
+	padding-right: 20px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 
 	&:hover {
 		text-decoration: none !important;
-    color: #fff !important;
-    background: #b6d908;
-    background: -webkit-linear-gradient( top, #b6d908 5%, #80a006 95%);
-    background: linear-gradient( to bottom, #b6d908 5%, #80a006 95%);
+		color: #fff !important;
+		background: #b6d908;
+		background: -webkit-linear-gradient(top, #b6d908 5%, #80a006 95%);
+		background: linear-gradient(to bottom, #b6d908 5%, #80a006 95%);
+	}
+	
+	&:disabled {
+		opacity: .5;
+		cursor: no-drop;
+	}
+
+	&--secondary {
+		background: var(--wsl-button-2-background);
+		color: var(--wsl-main-text-color) !important;
+		&:hover {
+			background: var(--wsl-button-2-hover);
+			color: #fff !important;
+		}
 	}
 }

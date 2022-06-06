@@ -1,21 +1,19 @@
 <?php
 
-class WSL_OptionHelper
+class WSL_Option_Model
 {
 
 	function __construct()
 	{
 	}
 
-	public function getOption($key)
+	public function getOption($key, $default)
 	{
-
-		return get_option($key, 0);
+		return get_option($key, $default);
 	}
 
 	public function updateOption($key, $value, $autoload)
 	{
-
 		if ($value != 0) {
 			update_option($key, $value, $autoload);
 		} else {
@@ -25,6 +23,6 @@ class WSL_OptionHelper
 
 	public static function instance()
 	{
-		return new WSL_OptionHelper();
+		return new WSL_Option_Model();
 	}
 }

@@ -1,0 +1,11 @@
+.wsl-text-form-log {
+	margin: 0;
+	text-align: left;
+	color: #fff;
+	&--success {
+		color: var(--wsl-button-color);
+	}
+	&--failed {
+		color: var(--wsl-error-color);
+	}
+}

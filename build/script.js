@@ -2476,9 +2476,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/UserAccountLink/steam/style.scss");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../globalComponents/data/pluginData */ "./src/globalComponents/data/pluginData.js");
-/* harmony import */ var _globalComponents_UI_SteamButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../globalComponents/UI/SteamButton */ "./src/globalComponents/UI/SteamButton.js");
-/* harmony import */ var _components_SteamUserCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SteamUserCard */ "./src/UserAccountLink/steam/components/SteamUserCard.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../globalComponents/data/pluginData */ "./src/globalComponents/data/pluginData.js");
+/* harmony import */ var _globalComponents_UI_SteamButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../globalComponents/UI/SteamButton */ "./src/globalComponents/UI/SteamButton.js");
+/* harmony import */ var _components_SteamUserCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/SteamUserCard */ "./src/components/SteamUserCard.js");
+/* harmony import */ var _components_SteamInfoUpdater__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/SteamInfoUpdater */ "./src/components/SteamInfoUpdater.js");
+/* harmony import */ var _components_SteamAccountDisconnect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/SteamAccountDisconnect */ "./src/components/SteamAccountDisconnect.js");
+
+
+
 
 
 
@@ -2490,67 +2497,39 @@ __webpack_require__.r(__webpack_exports__);
 
 const SteamAccountApp = () => {
   const [userStatus, setUserStatus] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [steamUserInfo, setSteamUserInfo] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+
+  const userInfoHandler = userInfo => {
+    setSteamUserInfo(userInfo);
+  };
+
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {
     const params = new URLSearchParams();
     params.append('action', 'WSL_get_user_steam_id');
-    const response = await axios__WEBPACK_IMPORTED_MODULE_3___default().post(_globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_4__.URLs.ajax_url, params);
-    console.log(response.data);
+    params.append('return_url', location.protocol + '//' + location.host + location.pathname);
+    const response = await axios__WEBPACK_IMPORTED_MODULE_3___default().post(_globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_5__.URLs.ajax_url, params);
     setUserStatus(response.data);
   }, []);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wsl-steam-account-link"
   }, userStatus ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, userStatus.status === 'unlinked' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wsl-steam-account-link__link-account"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You have not a Steam account linked yet"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_UI_SteamButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('You have not a Steam account connected yet', 'wp-steam-account-link')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_UI_SteamButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
     href: userStatus.data['link-url'],
     tag: "link"
   }, "Link Account")), userStatus.status === 'logged-out' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wsl-steam-account-link__link-account"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You must Login to connect with a Steam Account")), userStatus.status === 'linked' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SteamUserCard__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    steamID: userStatus.data['steam-id']
-  })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_loader_SteamLoader__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, userStatus.message)), userStatus.status === 'linked' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SteamUserCard__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    onGetUserInfo: userInfoHandler,
+    steamID: userStatus.data['steam-id'],
+    APIKey: userStatus.data.APIKey
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SteamAccountDisconnect__WEBPACK_IMPORTED_MODULE_9__["default"], null)), userStatus && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, steamUserInfo && userStatus.data['user-id'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SteamInfoUpdater__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    userID: userStatus.data['user-id'],
+    userInfo: steamUserInfo
+  }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_loader_SteamLoader__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SteamAccountApp);
-
-/***/ }),
-
-/***/ "./src/UserAccountLink/steam/components/SteamUserCard.js":
-/*!***************************************************************!*\
-  !*** ./src/UserAccountLink/steam/components/SteamUserCard.js ***!
-  \***************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _globalComponents_loader_SteamLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../globalComponents/loader/SteamLoader */ "./src/globalComponents/loader/SteamLoader.js");
-/* harmony import */ var _SteamUserCard_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SteamUserCard.scss */ "./src/UserAccountLink/steam/components/SteamUserCard.scss");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-
-const SteamUserCard = props => {
-  const [steamUserInfo, setSteamUserInfo] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {
-    const response = await axios__WEBPACK_IMPORTED_MODULE_3___default().get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=CD9215B63C2E3A2BFF91B7957227BF04&steamids=${props.steamID}`);
-    setSteamUserInfo(response.data.response.players[0]);
-  }, [props.steamID]);
-  console.log(steamUserInfo);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, steamUserInfo && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "steam-user-card"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "steam-user-card__img",
-    src: steamUserInfo.avatar
-  })), !steamUserInfo && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_loader_SteamLoader__WEBPACK_IMPORTED_MODULE_1__["default"], null));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (SteamUserCard);
 
 /***/ }),
 
@@ -2572,6 +2551,185 @@ if (document.getElementById('wp-steam-account-link-user')) (0,_wordpress_element
 
 /***/ }),
 
+/***/ "./src/components/SteamAccountDisconnect.js":
+/*!**************************************************!*\
+  !*** ./src/components/SteamAccountDisconnect.js ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SteamAccountDisconnect_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SteamAccountDisconnect.scss */ "./src/components/SteamAccountDisconnect.scss");
+/* harmony import */ var _globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../globalComponents/data/pluginData */ "./src/globalComponents/data/pluginData.js");
+/* harmony import */ var _globalComponents_UI_SteamButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../globalComponents/UI/SteamButton */ "./src/globalComponents/UI/SteamButton.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+
+
+const SteamAccountDisconnect = () => {
+  const [status, setStatus] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('neutral');
+
+  const DisconnectAccount = async () => {
+    const params = new URLSearchParams();
+    params.append('action', 'WSL_disconnect_user_steam_account');
+
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_5___default().post(_globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_2__.URLs.ajax_url, params);
+      setStatus('disconnected');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-steam-account-disconnect"
+  }, status === 'neutral' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_UI_SteamButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onClick: () => {
+      setStatus('aware');
+    },
+    tag: "button"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Disconnect', 'wp-steam-account-link')), status === 'aware' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "are-u-sure-form"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Disconnect your Steam Account?', 'wp-steam-account-link'), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => {
+      setStatus('disconnecting');
+      DisconnectAccount();
+    },
+    className: "are-u-sure-form__button"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('yes', 'wp-steam-account-link')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => {
+      setStatus('neutral');
+    },
+    className: "are-u-sure-form__button"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('no', 'wp-steam-account-link')))), status === 'disconnecting' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "disconnecting-container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Disconnecting...', 'wp-steam-account-link'))), status === 'disconnected' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "disconnecting-container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Your account was successfully disconnectd', 'wp-steam-account-link'))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SteamAccountDisconnect);
+
+/***/ }),
+
+/***/ "./src/components/SteamInfoUpdater.js":
+/*!********************************************!*\
+  !*** ./src/components/SteamInfoUpdater.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SteamInfoUpdater_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SteamInfoUpdater.scss */ "./src/components/SteamInfoUpdater.scss");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../globalComponents/data/pluginData */ "./src/globalComponents/data/pluginData.js");
+
+
+
+
+
+
+
+const SteamInfoUpdater = props => {
+  const [infoUpdated, setInfoUpdated] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {
+    const params = new URLSearchParams();
+    params.append('action', 'WSL_update_user_info');
+    params.append('user-id', props.userID);
+    params.append('user-info', JSON.stringify(props.userInfo));
+
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_3___default().post(_globalComponents_data_pluginData__WEBPACK_IMPORTED_MODULE_4__.URLs.ajax_url, params);
+      setInfoUpdated(true);
+    } catch (error) {}
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, infoUpdated && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null), !infoUpdated && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "steam-info-updater"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Updating User Info...', 'wp-steam-account-link'))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SteamInfoUpdater);
+
+/***/ }),
+
+/***/ "./src/components/SteamUserCard.js":
+/*!*****************************************!*\
+  !*** ./src/components/SteamUserCard.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globalComponents_loader_SteamLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globalComponents/loader/SteamLoader */ "./src/globalComponents/loader/SteamLoader.js");
+/* harmony import */ var _SteamUserCard_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SteamUserCard.scss */ "./src/components/SteamUserCard.scss");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+
+const SteamUserCard = props => {
+  const [steamUserInfo, setSteamUserInfo] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [catchError, setCatchError] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_3___default().get(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${props.APIKey}&steamids=${props.steamID}`);
+      setSteamUserInfo(response.data.response.players[0]);
+
+      if (props.onGetUserInfo) {
+        props.onGetUserInfo(response.data.response.players[0]);
+      }
+    } catch (error) {
+      setCatchError(error);
+    }
+  }, [props.steamID]);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, steamUserInfo && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "steam-user-card"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "steam-user-card__section steam-user-card__section--img"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: steamUserInfo.profileurl,
+    target: "_blank"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "steam-user-card__img",
+    src: steamUserInfo.avatar
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "steam-user-card__section steam-user-card__section--info"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: steamUserInfo.profileurl,
+    target: "_blank"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
+    className: "steam-name-info steam-name-info--personame"
+  }, steamUserInfo.personaname)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
+    className: "steam-name-info steam-name-info--realname"
+  }, steamUserInfo.realname))), catchError ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "error-message"
+  }, catchError.message) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, !steamUserInfo && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_globalComponents_loader_SteamLoader__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SteamUserCard);
+
+/***/ }),
+
 /***/ "./src/globalComponents/UI/SteamButton.js":
 /*!************************************************!*\
   !*** ./src/globalComponents/UI/SteamButton.js ***!
@@ -2588,7 +2746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const SteamButton = props => {
   switch (props.tag) {
-    case "link":
+    case 'link':
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
         href: props.href ? props.href : `#`,
         className: `${props.className && props.className} steam-button`
@@ -2599,7 +2757,8 @@ const SteamButton = props => {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
         type: props.type ? props.type : `button`,
         className: `${props.className && props.className} steam-button`,
-        disabled: props.disabled ? props.disabled : false
+        disabled: props.disabled ? props.disabled : false,
+        onClick: props.onClick !== null && props.onClick
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
         className: "button-text"
       }, props.children));
@@ -2705,10 +2864,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/UserAccountLink/steam/components/SteamUserCard.scss":
-/*!*****************************************************************!*\
-  !*** ./src/UserAccountLink/steam/components/SteamUserCard.scss ***!
-  \*****************************************************************/
+/***/ "./src/UserAccountLink/steam/style.scss":
+/*!**********************************************!*\
+  !*** ./src/UserAccountLink/steam/style.scss ***!
+  \**********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2718,10 +2877,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/UserAccountLink/steam/style.scss":
+/***/ "./src/components/SteamAccountDisconnect.scss":
+/*!****************************************************!*\
+  !*** ./src/components/SteamAccountDisconnect.scss ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/SteamInfoUpdater.scss":
 /*!**********************************************!*\
-  !*** ./src/UserAccountLink/steam/style.scss ***!
+  !*** ./src/components/SteamInfoUpdater.scss ***!
   \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/SteamUserCard.scss":
+/*!*******************************************!*\
+  !*** ./src/components/SteamUserCard.scss ***!
+  \*******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2778,6 +2963,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = window["wp"]["i18n"];
 
 /***/ })
 
@@ -2894,6 +3090,7 @@ module.exports = window["wp"]["element"];
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"script": 0,
+/******/ 			"./style-admin": 0,
 /******/ 			"./style-script": 0
 /******/ 		};
 /******/ 		
@@ -2946,7 +3143,7 @@ module.exports = window["wp"]["element"];
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-script"], function() { return __webpack_require__("./src/script.js"); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-admin","./style-script"], function() { return __webpack_require__("./src/script.js"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

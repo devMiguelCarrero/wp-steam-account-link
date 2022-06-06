@@ -1,0 +1,35 @@
+.wsl-steam-account-settings {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	background-color: var(--wsl-background-color);
+	border: solid 2px var(--wsl-button-color);
+	padding: 1rem;
+	max-width: 500px;
+	margin-top: 1.5rem;
+	min-height: 250px;
+	color: var(--wsl-secondary-text-color);
+
+	.steam-button {
+		display: table;
+		margin: 0 auto;
+	}
+
+	.steam-loader {
+		flex: 1;
+		height: 100%;
+	}
+
+	.error-message {
+		margin: 0;
+		text-align: center;
+		color: var(--wsl-error-color);
+	}
+
+	& > * {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+}
