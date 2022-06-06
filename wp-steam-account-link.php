@@ -6,7 +6,7 @@ Description: Wordpress plugin boilerplate made for working with react and/or gut
 Version: 1.0.0
 Author: devMiguelCarrero
 Author URI: #
-License: OSLv3
+License: GPLv2
 Requires at least: 4.0
 Text Domain: wp-steam-account-link
 Domain Path: /wp-steam-account-link/
