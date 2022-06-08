@@ -4,7 +4,7 @@
 
         function __construct() {
             global $post;
-            $this->current_post = $post->ID;
+            $this->current_post = is_object($post) ? $post->ID : 0;
         }
 
         public function get_posts_info() {
