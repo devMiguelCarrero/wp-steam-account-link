@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WP Steam Account Link
-Plugin URI: #
-Description: Wordpress plugin boilerplate made for working with react and/or gutenberg with a nice php MVC design pattern
+Plugin URI: https://github.com/devMiguelCarrero/wp-steam-account-link/
+Description: Wordpress plugin made to vinculate your subscribbed users with steam. Getting information like name, NickName and games users own
 Version: 0.1.0
 Author: devMiguelCarrero
-Author URI: #
+Author URI: https://github.com/devMiguelCarrero/
 License: GPLv2
 Requires at least: 4.0
 Text Domain: wp-steam-account-link

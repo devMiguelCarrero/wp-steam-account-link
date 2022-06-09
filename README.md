@@ -1,13 +1,13 @@
 === WP Steam Account Link ===
-Contributors: devmiguelcarrero
-Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
-Tags: steam, account, connect, games, gaming, esport, esport, link
-Requires at least: 4.7
-Tested up to: 6.0
-Stable tag: 4.8
-Requires PHP: 7.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+* Contributors: devmiguelcarrero
+* Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
+* Tags: steam, account, connect, games, gaming, esport, esport, link
+* Requires at least: 4.7
+* Tested up to: 6.0
+* Stable tag: 4.8
+* Requires PHP: 7.0
+* License: GPLv2 or later
+* License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Wordpress plugin made to vinculate your subscribbed users with steam. Getting information like name, NickName and games users own.
 
