@@ -17,15 +17,15 @@
 	}
 
     a {
-        color: var(--wsl-main-text-color);
+        color: var(--wsl-main-text-color) !important;
         &:hover, &:focus {
-            color: var(--wsl-button-color);
+            color: var(--wsl-button-color) !important;
         }
     }
 
 	&__label {
 		display: block;
-		color: var(--wsl-main-text-color);
+		color: var(--wsl-main-text-color) !important;
 		margin-bottom: 0.3rem;
 	}
 
@@ -38,6 +38,6 @@
 	}
 
 	&__explanation {
-		color: var(--wsl-secondary-text-color);
+		color: var(--wsl-secondary-text-color) !important;
 	}
 }

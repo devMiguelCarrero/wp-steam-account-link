@@ -21,14 +21,14 @@
 			box-shadow: none;
 			padding: 1px;
 			display: inline-block;
-			color: var(--wsl-main-text-color);
+			color: var(--wsl-main-text-color) !important;
 			&:first-child {
 				margin-left: 0.3rem;
 			}
 			&:not(:last-child) {
 				&::after {
 					content: '/';
-					color: var(--wsl-button-color);
+					color: var(--wsl-button-color) !important;
 					display: inline-block;
 					margin-left: 0.3rem;
 					margin-right: 0.3rem;
@@ -36,7 +36,7 @@
 				}
 			}
 			&:hover {
-				color: var(--wsl-button-color);
+				color: var(--wsl-button-color) !important;
 			}
 		}
 	}

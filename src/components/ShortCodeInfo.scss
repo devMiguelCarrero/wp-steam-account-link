@@ -1,7 +1,7 @@
 .wp-steam-shortcode-info {
     &__shortcode {
         padding: .5rem;
-        background-color: var(--wsl-secondary-background-color);
+        background-color: var(--wsl-secondary-background-color) !important;
         text-align: center;
         color: #fff;
         &:not(:last-child) {

@@ -3,7 +3,7 @@
 Plugin Name: WP Steam Account Link
 Plugin URI: #
 Description: Wordpress plugin boilerplate made for working with react and/or gutenberg with a nice php MVC design pattern
-Version: 1.0.0
+Version: 0.1.0
 Author: devMiguelCarrero
 Author URI: #
 License: GPLv2
@@ -29,7 +29,7 @@ if (!function_exists('add_action')) {
 }
 
 define('WSL_DOMAIN', 'wp-steam-account-link');
-define('WSL_VERSION', '1.0.0');
+define('WSL_VERSION', '0.1.0');
 define('WSL_SITE_URL', get_site_url() . '/');
 define('WSL_ACHIEVEMENTS_PATH', plugin_dir_path(__FILE__));
 define('WSL_PLUGIN_URL', plugin_dir_url(__FILE__));

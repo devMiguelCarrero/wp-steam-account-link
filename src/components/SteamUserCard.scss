@@ -2,10 +2,11 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	background-color: var(--wsl-secondary-background-color);
+	background-color: var(--wsl-secondary-background-color) !important;
 	padding: 0.6rem 0.3rem;
+	font-family: Arial, Helvetica, sans-serif !important;
 	&__img {
-		border: solid 2px var(--wsl-main-text-color);
+		border: solid 2px var(--wsl-main-text-color) !important;
 	}
 
 	&__section {
@@ -24,9 +25,9 @@
 		margin: 0;
 		font-weight: 200;
 		font-size: 14px;
-		font-family: Arial, Helvetica, sans-serif;
+		font-family: Arial, Helvetica, sans-serif !important;
 		&--personame {
-			color: var(--wsl-main-text-color);
+			color: var(--wsl-main-text-color) !important;
 		}
 	}
 

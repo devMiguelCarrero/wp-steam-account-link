@@ -1,7 +1,7 @@
 .wp-steam-post-meta-info {
 	&__shortcode {
 		padding: 0.5rem;
-		background-color: var(--wsl-secondary-background-color);
+		background-color: var(--wsl-secondary-background-color) !important;
 		text-align: left;
 		color: #fff;
 		&:not(:last-child) {
