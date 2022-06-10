@@ -1,4 +1,4 @@
-=== WP Steam Account Link ===
+=== Steam Account Link ===
 Contributors: devmiguelcarrero
 Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
 Tags: steam, account, connect, games, gaming, esport, esport, link

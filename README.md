@@ -1,4 +1,4 @@
-=== WP Steam Account Link ===
+=== Steam Account Link ===
 * Contributors: devmiguelcarrero
 * Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
 * Tags: steam, account, connect, games, gaming, esport, esport, link
@@ -37,8 +37,10 @@ Answer to foo bar dilemma.
 
 == Screenshots ==
 
-1. /wp-steam-account-link/assets/screenshot-1.png
-2. /wp-steam-account-link/assets/screenshot-2.png
+### Main Screenshots
+
+![Steam Account Vinculation](/assets/screenshot-1.png "Steam Account Vinculation")
+![Steam Admin Settings](/assets/screenshot-2.png "Steam Admin Settings")
 
 == Changelog ==
 

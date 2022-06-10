@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WP Steam Account Link
+Plugin Name: Steam Account Link
 Plugin URI: https://github.com/devMiguelCarrero/wp-steam-account-link/
 Description: Wordpress plugin made to vinculate your subscribbed users with steam. Getting information like name, NickName and games users own
 Version: 0.1.0
