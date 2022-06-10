@@ -1,4 +1,4 @@
-=== Steam Account Link ===
+### Steam Account Link
 * Contributors: devmiguelcarrero
 * Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
 * Tags: steam, account, connect, games, gaming, esport, esport, link
@@ -11,7 +11,7 @@
 
 Wordpress plugin made to vinculate your subscribbed users with steam. Getting information like name, NickName and games users own.
 
-== Description ==
+### Description
 
 This plugin was made to connect the WordPress User with his/her Steam Account and store related Wordpress info on the site database using the usermeta native table.
 
@@ -24,7 +24,7 @@ This plugin stores the following user_meta fields and you can use it in the way 
 * wp-steam-account-summary
 * wp-steam-account-linked
 
-== Frequently Asked Questions ==
+### Frequently Asked Questions
 
 = How do i check the data stored on the usermeta table? =
 
@@ -35,19 +35,17 @@ User Steam info will be displayed on the admin user section on future releases.
 
 Answer to foo bar dilemma.
 
-== Screenshots ==
-
-### Main Screenshots
+### Screenshots
 
 ![Steam Account Vinculation](/assets/screenshot-1.png "Steam Account Vinculation")
 ![Steam Admin Settings](/assets/screenshot-2.png "Steam Admin Settings")
 
-== Changelog ==
+### Changelog
 
 = 0.1.0 =
 * Created main files for the plugin correct functioning
 
-== Upgrade Notice ==
+### Upgrade Notice
 
 = 0.1.0 =
 Created main files for the plugin correct functioning
