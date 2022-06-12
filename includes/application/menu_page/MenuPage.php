@@ -8,15 +8,15 @@ class WSL_MenuPage
         $this->id = 'custom-menu-page';
         $this->submenu = false;
         $this->parent_slug = 'options-general.php';
-        $this->page_title = __('Custom Menu Page', 'wp-steam-account-link');
-        $this->menu_title = __('Custom Menu Page', 'wp-steam-account-link');
+        $this->page_title = __('Custom Menu Page', 'easy-steam-account-link');
+        $this->menu_title = __('Custom Menu Page', 'easy-steam-account-link');
         $this->capability = 'manage_options';
         $this->menu_slug = WSL_DOMAIN . '-custom-menu-page';
         $this->callback = 'single_react_view';
         $this->icon_url = 'data:image/svg+xml;base64,' . base64_encode('<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
         $this->position = 30;
         $this->addToPluginList = false;
-        $this->PluginListTitle = esc_attr__('Settings', 'wp-steam-account-link');
+        $this->PluginListTitle = esc_attr__('Settings', 'easy-steam-account-link');
     }
 
     public function add()

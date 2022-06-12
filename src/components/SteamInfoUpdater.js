@@ -26,7 +26,7 @@ const SteamInfoUpdater = (props) => {
 			{!infoUpdated && (
 				<div className="steam-info-updater">
 					<p>
-						{__('Updating User Info...', 'wp-steam-account-link')}
+						{__('Updating User Info...', 'easy-steam-account-link')}
 					</p>
 				</div>
 			)}

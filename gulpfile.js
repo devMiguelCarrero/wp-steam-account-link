@@ -15,7 +15,7 @@ const bundle = () => {
       "!webpack.config.js",
       "!gitignore",
     ])
-    .pipe(zip("wp-steam-account-link.zip"))
+    .pipe(zip("easy-steam-account-link.zip"))
     .pipe(gulp.dest("bundled"));
 };
 

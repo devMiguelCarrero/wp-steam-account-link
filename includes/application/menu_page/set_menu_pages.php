@@ -7,7 +7,7 @@ class WSL_SetMenuPages
     {
 
         $page = new WSL_MenuPageBuilder();
-        $page->setID('wp-steam-account-link-settings')
+        $page->setID('easy-steam-account-link-settings')
             ->setSubMenu(true)
             ->setParentSlug('options-general.php')
             ->setPageTitle(esc_attr__('Steam Account', WSL_DOMAIN))

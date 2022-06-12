@@ -6,7 +6,7 @@ class WSL_PluginLink
     function __construct()
     {
         $this->id = 'custom-plugin-link';
-        $this->title = esc_attr__('Settings', 'wp-steam-account-link');
+        $this->title = esc_attr__('Settings', 'easy-steam-account-link');
         $this->parent_slug = 'options-general.php';
     }
 
@@ -19,7 +19,7 @@ class WSL_PluginLink
     {
         $new_actions = array();
         if (WSL_DOMAIN . '/' . WSL_DOMAIN . '.php' === $plugin_file) {
-            $new_actions[$this->id] = sprintf(__('<a href="%s">Settings</a>', 'wp-steam-account-link'), esc_url(admin_url($this->parent_slug . '?page=' . $this->id)));
+            $new_actions[$this->id] = sprintf(__('<a href="%s">Settings</a>', 'easy-steam-account-link'), esc_url(admin_url($this->parent_slug . '?page=' . $this->id)));
         }
         return array_merge($new_actions, $plugin_actions);
     }

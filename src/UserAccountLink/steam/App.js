@@ -34,7 +34,7 @@ const SteamAccountApp = () => {
 				<>
 					{userStatus.status === 'unlinked' && (
 						<div className="wsl-steam-account-link__link-account">
-							<p>{__('You have not a Steam account connected yet', 'wp-steam-account-link')}</p>
+							<p>{__('You have not a Steam account connected yet', 'easy-steam-account-link')}</p>
 							<SteamButton
 								href={userStatus.data['link-url']}
 								tag="link"

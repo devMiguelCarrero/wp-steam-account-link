@@ -1,4 +1,4 @@
-=== Steam Account Link ===
+=== Easy Steam Account Link ===
 Contributors: devmiguelcarrero
 Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
 Tags: steam, account, connect, games, gaming, esport, esport, link
@@ -15,7 +15,7 @@ Wordpress plugin made to vinculate your subscribbed users with steam. Getting in
 
 This plugin was made to connect the WordPress User with his/her Steam Account and store related Wordpress info on the site database using the usermeta native table.
 
-For the current use of this plugin, you need to have a Steam Account and create an Steam developer APIKey here [Steam API Key](https://steamcommunity.com/dev/apikey) and save it on the settings page in your /wp-admin/options-general.php?page=wp-steam-account-link-settings.
+For the current use of this plugin, you need to have a Steam Account and create an Steam developer APIKey here [Steam API Key](https://steamcommunity.com/dev/apikey) and save it on the settings page in your /wp-admin/options-general.php?page=easy-steam-account-link-settings.
 
 You can use the shortcode [WSL_user_steam_vinculation][/WSL_user_steam_vinculation] to display the Steam account vinculation card on the place that you wish.
 
@@ -37,8 +37,8 @@ Answer to foo bar dilemma.
 
 == Screenshots ==
 
-1. /wp-steam-account-link/assets/screenshot-1.png
-2. /wp-steam-account-link/assets/screenshot-2.png
+1. /easy-steam-account-link/assets/screenshot-1.png
+2. /easy-steam-account-link/assets/screenshot-2.png
 
 == Changelog ==
 

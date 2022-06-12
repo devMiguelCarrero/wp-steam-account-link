@@ -7,7 +7,7 @@ const ShortCodeInfo = () => {
 			<small className="wp-steam-shortcode-info__explanation">
 				{__(
 					'To display the Steam Account Linker, you have to paste the following shortcode on the area that you decide:',
-					'wp-steam-account-link'
+					'easy-steam-account-link'
 				)}
 			</small>
 			<div className="wp-steam-shortcode-info__shortcode">
@@ -16,7 +16,7 @@ const ShortCodeInfo = () => {
             <small className="wp-steam-shortcode-info__explanation">
 				{__(
 					'To display the Steam Account Linker on your php code, you can use the following function:',
-					'wp-steam-account-link'
+					'easy-steam-account-link'
 				)}
 			</small>
             <div className="wp-steam-shortcode-info__shortcode">

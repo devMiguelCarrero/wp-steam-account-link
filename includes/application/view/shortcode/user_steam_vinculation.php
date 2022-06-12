@@ -1,1 +1,1 @@
-<div id="wp-steam-account-link-user"></div>
+<div id="easy-steam-account-link-user"></div>

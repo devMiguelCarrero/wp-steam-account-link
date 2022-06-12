@@ -29,7 +29,7 @@ const SteamAccountDisconnect = () => {
 					}}
 					tag="button"
 				>
-					{__('Disconnect', 'wp-steam-account-link')}
+					{__('Disconnect', 'easy-steam-account-link')}
 				</SteamButton>
 			)}
 			{status === 'aware' && (
@@ -37,7 +37,7 @@ const SteamAccountDisconnect = () => {
 					<p>
 						{__(
 							'Disconnect your Steam Account?',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}
 						<button
 							onClick={() => {
@@ -46,7 +46,7 @@ const SteamAccountDisconnect = () => {
 							}}
 							className="are-u-sure-form__button"
 						>
-							{__('yes', 'wp-steam-account-link')}
+							{__('yes', 'easy-steam-account-link')}
 						</button>
 						<button
 							onClick={() => {
@@ -54,14 +54,14 @@ const SteamAccountDisconnect = () => {
 							}}
 							className="are-u-sure-form__button"
 						>
-							{__('no', 'wp-steam-account-link')}
+							{__('no', 'easy-steam-account-link')}
 						</button>
 					</p>
 				</div>
 			)}
 			{status === 'disconnecting' && (
 				<div className="disconnecting-container">
-					<p>{__('Disconnecting...', 'wp-steam-account-link')}</p>
+					<p>{__('Disconnecting...', 'easy-steam-account-link')}</p>
 				</div>
 			)}
 			{status === 'disconnected' && (
@@ -69,7 +69,7 @@ const SteamAccountDisconnect = () => {
 					<p>
 						{__(
 							'Your account was successfully disconnectd',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}
 					</p>
 				</div>

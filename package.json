@@ -1,5 +1,5 @@
 {
-	"name": "wp-steam-account-link",
+	"name": "easy-steam-account-link",
 	"version": "1.0.0",
 	"description": "Wordpress plugin made to vinculate your subscribbed users with steam. Getting information like name, NickName and games users own",
 	"main": "build/index.js",

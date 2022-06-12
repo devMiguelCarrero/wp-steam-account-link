@@ -5,7 +5,7 @@
         public function init() {
 
             $page = new WSL_PluginLinkBuilder();
-            $page->setID('wp-steam-account-link-settings')
+            $page->setID('easy-steam-account-link-settings')
                  ->setParentSlug('options-general.php')
                  ->build()
                  ->add();

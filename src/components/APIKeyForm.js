@@ -60,7 +60,7 @@ const APIKeyForm = (props) => {
 		<form className="api-key-form" onSubmit={saveAPIKey}>
 			<div className="form-group">
 				<label className="api-key-form__label">
-					{__('Steam API Key', 'wp-steam-account-link')}
+					{__('Steam API Key', 'easy-steam-account-link')}
 				</label>
 				<input
 					className="api-key-form__input"
@@ -75,7 +75,7 @@ const APIKeyForm = (props) => {
 					<small className="api-key-form__explanation">
 						{__(
 							"You haven't defined an Steam API Key yet. You have to set an API key for the correct plugin functioning",
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}{' '}
 						<a
 							target="_blank"
@@ -83,14 +83,14 @@ const APIKeyForm = (props) => {
 						>
 							https://steamcommunity.com/dev/apikey
 						</a>{' '}
-						{__('to obtain one.', 'wp-steam-account-link')}
+						{__('to obtain one.', 'easy-steam-account-link')}
 					</small>
 				)}
 				{props.currentAPIKey.api_key !== '' && (
 					<small className="api-key-form__explanation">
 						{__(
 							'If you need to change your API Key, visit ',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}{' '}
 						<a
 							target="_blank"
@@ -108,29 +108,29 @@ const APIKeyForm = (props) => {
 					type="button"
 					onClick={testAPIKey}
 				>
-					{APILoading && __('Loading...', 'wp-steam-account-link')}
-					{!APILoading && __('Test API Key', 'wp-steam-account-link')}
+					{APILoading && __('Loading...', 'easy-steam-account-link')}
+					{!APILoading && __('Test API Key', 'easy-steam-account-link')}
 				</SteamButton>
 				<SteamButton
 					disabled={APIInvalid || APILoading || props.currentAPIKey.api_key === APIKey || APIKey.length <= 10}
 					className="api-key-form__submit"
 					type="submit"
 				>
-					{APILoading && __('Loading...', 'wp-steam-account-link')}
-					{!APILoading && __('Save API Key', 'wp-steam-account-link')}
+					{APILoading && __('Loading...', 'easy-steam-account-link')}
+					{!APILoading && __('Save API Key', 'easy-steam-account-link')}
 				</SteamButton>
 			</div>
 			<>
 				{APILoadStatus === 'testing' && (
 					<TextFormLog>
-						{__('Testing your API Key...', 'wp-steam-account-link')}
+						{__('Testing your API Key...', 'easy-steam-account-link')}
 					</TextFormLog>
 				)}
 				{APILoadStatus === 'success' && (
 					<TextFormLog status="success">
 						{__(
 							'Your API key is a valid Steam API key',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}
 					</TextFormLog>
 				)}
@@ -138,20 +138,20 @@ const APIKeyForm = (props) => {
 					<TextFormLog status="failed">
 						{__(
 							'Your key is not a valid Steam API key',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}
 					</TextFormLog>
 				)}
 				{APILoadStatus === 'saving' && (
 					<TextFormLog>
-						{__('Saving your API Key...', 'wp-steam-account-link')}
+						{__('Saving your API Key...', 'easy-steam-account-link')}
 					</TextFormLog>
 				)}
 				{APILoadStatus === 'saved' && (
 					<TextFormLog status="success">
 						{__(
 							'Your Steam API Key was successfully saved, you can now use this plugin properly',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}
 					</TextFormLog>
 				)}
@@ -159,7 +159,7 @@ const APIKeyForm = (props) => {
 					<TextFormLog status="failed">
 						{__(
 							'There was an error saving your API Key, please try again',
-							'wp-steam-account-link'
+							'easy-steam-account-link'
 						)}
 					</TextFormLog>
 				)}
