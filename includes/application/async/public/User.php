@@ -22,12 +22,12 @@ class WSL_User_Async
 	public function update_user_info()
 	{
 		$userInfo = esc_attr($_POST['user-info']);
-		$userID = esc_attr($_POST['user-id']);
+		$userID = intval($_POST['user-id']);
 
 		if ($userInfo && $userID) {
 			$userInfo = htmlspecialchars_decode(stripslashes($userInfo));
 			WSL_User_Model::instance()->updateUserMeta($userID, 'wp-steam-account-summary', json_decode($userInfo));
-			echo 'updated';
+			echo esc_html('updated');
 		}
 
 		exit();
@@ -36,7 +36,7 @@ class WSL_User_Async
 	public function disconnect_user_steam_account()
 	{
 		WSL_User_Model::instance()->deleteCurrentUserMeta('wp-steam-account-linked');
-		echo 'disconnected';
+		echo esc_html__('disconnected', 'easy-steam-account-link');
 		exit();
 	}
 

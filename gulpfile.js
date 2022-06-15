@@ -13,6 +13,7 @@ const bundle = () => {
       "!package.json",
       "!package-lock.json",
       "!webpack.config.js",
+      "!README.md",
       "!gitignore",
     ])
     .pipe(zip("easy-steam-account-link.zip"))
