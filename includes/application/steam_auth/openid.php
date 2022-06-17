@@ -85,10 +85,10 @@ class LightOpenID
             $this->trustRoot = substr($this->trustRoot, 0, $host_end);
         }
 
-        $uri = rtrim(preg_replace('#((?<=\?)|&)openid\.[^&]+#', '', $_SERVER['REQUEST_URI']), '?');
+        $uri = rtrim(preg_replace('#((?<=\?)|&)openid\.[^&]+#', '', sanitize_url($_SERVER['REQUEST_URI'])), '?');
         $this->returnUrl = $this->trustRoot . $uri;
 
-        $this->data = ($_SERVER['REQUEST_METHOD'] === 'POST') ? $_POST : $_GET;
+        $this->data = (sanitize_title($_SERVER['REQUEST_METHOD']) === 'POST') ? $_POST : $_GET;
 
         if(!function_exists('curl_init') && !in_array('https', stream_get_wrappers())) {
             throw new ErrorException('You must have either https wrappers or curl enabled.');

@@ -21,11 +21,11 @@ class WSL_User_Async
 
 	public function update_user_info()
 	{
-		$userInfo = esc_attr($_POST['user-info']);
+		$userInfo = htmlspecialchars_decode(stripslashes(sanitize_text_field($_POST['user-info'])));
 		$userID = intval($_POST['user-id']);
 
 		if ($userInfo && $userID) {
-			$userInfo = htmlspecialchars_decode(stripslashes($userInfo));
+			//$userInfo = htmlspecialchars_decode(stripslashes($userInfo));
 			WSL_User_Model::instance()->updateUserMeta($userID, 'wp-steam-account-summary', json_decode($userInfo));
 			echo esc_html('updated');
 		}

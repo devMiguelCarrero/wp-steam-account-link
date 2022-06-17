@@ -12,6 +12,10 @@ class WSL_Sanitize
 		return apply_filters([$this, 'sanitizeAPIKey'], $sanitized_string, $string);
 	}
 
+	public function sanitizeUserInfo($array) {
+		return $array;
+	}
+
 	public static function instance()
 	{
 		return new WSL_Sanitize;

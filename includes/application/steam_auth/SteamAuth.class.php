@@ -14,7 +14,7 @@ class SteamAuth
 
 	public function __construct($Server = 'DEFAULT')
 	{
-		if ($Server = 'DEFAULT') $Server = $_SERVER['SERVER_NAME'];
+		if ($Server = 'DEFAULT') $Server = sanitize_text_field($_SERVER['SERVER_NAME']);
 		$this->OpenID = new LightOpenID($Server);
 		$this->OpenID->identity = 'https://steamcommunity.com/openid';
 
