@@ -13,12 +13,14 @@ const SteamInfoUpdater = (props) => {
 		params.append('user-id', props.userID);
 		params.append('user-info', JSON.stringify(props.userInfo));
 
-		try {
-			const response = await axios.post(URLs.ajax_url, params);
+		let response;
 
-			setInfoUpdated(true);
+		try {
+			response = await axios.post(URLs.ajax_url, params);
 		} catch (error) {}
-	});
+
+		if (response) setInfoUpdated(true);
+	}, []);
 
 	return (
 		<>
