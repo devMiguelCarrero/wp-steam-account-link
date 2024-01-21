@@ -1,3 +1,5 @@
+![Easy Steam Account Link](/assets/banner.png "Easy Steam Account Link")
+
 ### Easy Steam Account Link
 * Contributors: devmiguelcarrero
 * Donate link: https://www.paypal.com/paypalme/slidmike?country.x=CO&locale.x=es_XC
